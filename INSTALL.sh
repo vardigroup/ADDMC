@@ -4,31 +4,39 @@
 
 ECHO="echo -e"
 
-LINE="========================================================================="
+LINE="############################################################"
 
-ADDMC_BIN="counting/addmc"
+BIN_DIR="." # repo root
 
 ################################################################################
 
-function makeCudd {
-  unzip libraries.zip
+function makeLib {
+  unzip -o lib.zip #NOTE overwriting without prompting
 
-  cd libraries/cudd-3.0.0
+  cd lib/cudd-3.0.0
+
   ./configure --enable-obj
   make
   # make check
-  cd ../..
-}
 
-function makeAddmc {
-  $ECHO "\n$LINE\nMaking $ADDMC_BIN\n"
-
-  make -C counting
-
-  $ECHO "\nTry:\n\t$ADDMC_BIN\n"
+  cd -
 }
 
 ################################################################################
 
-makeCudd
+function makeBin {
+  bin="$1"
+
+  $ECHO "$LINE\nMaking $BIN_DIR/$bin ...\n"
+  make $bin
+  $ECHO "\n$LINE\nTry:\n\t$BIN_DIR/$bin -h\n"
+}
+
+function makeAddmc {
+  makeBin addmc
+}
+
+################################################################################
+
+makeLib
 makeAddmc

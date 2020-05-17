@@ -1,17 +1,26 @@
-counting/addmc
-counting/object/
+addmc
+
+lib/
+obj/
+benchmarks/
 experimenting/Auto*
 experimenting/data.py
-libraries/
 
 *.nnf
 *.query
 
 __pycache__
 *.pyc
+venv
+.idea
 
 *.swp
 
+build
+.vscode
+flow-cutter-pace17
+
+*.sif
 
 ################################################################################
 ## GitHub default ignores: C

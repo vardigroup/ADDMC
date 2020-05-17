@@ -13,9 +13,12 @@
 
 <!-- ####################################################################### -->
 
-## [Releases with Assets for Download](https://github.com/vardigroup/ADDMC/releases)
+## [Releases](https://github.com/vardigroup/ADDMC/releases)
 
+- 2020/05/17: [mc-2020](https://github.com/vardigroup/ADDMC/releases/tag/mc-2020)
+  - Model Counting 2020 competition, WMC track
 - 2020/02/02: [v1.0.0](https://github.com/vardigroup/ADDMC/releases/tag/v1.0.0)
+  - AAAI 2020 conference
   - Assets:
     - ADDMC source code (C++): [ADDMC.zip][url_v1_0_0_addmc_zip]
     - Benchmarks: [benchmarks.zip][url_v1_0_0_benchmarks_zip]
@@ -23,156 +26,104 @@
 
 <!-- ####################################################################### -->
 
-## Installation (Linux)
-
-### Prerequisites
-- ADDMC source code
-- g++ 6.4.0
-- make
-- unzip
-
-### Commands
-```
-$ ./INSTALL.sh
-```
+## Installation
+See `INSTALL.md`
 
 <!-- ####################################################################### -->
 
 ## Examples
 
 ### Showing command-line options
+#### Command
+```bash
+./addmc -h
 ```
-$ counting/addmc
-
-============================================================
-ADDMC: exact Model Counter using Algebraic Decision Diagrams
-Version v1.0.0, released on 2020/02/02
+#### Output
+```
+==================================================================
+ADDMC: Algebraic Decision Diagram Model Counter (help: 'addmc -h')
+Version mc-2020, released on 2020/05/17
+==================================================================
 
 Usage:
   addmc [OPTION...]
 
- Required options:
-      --cf arg  CNF file path
-
  Optional options:
-      --wf arg  Weight format options:
-                 1	UNWEIGHTED
-                 2	MINIC2D        default: 2
-                 3	CACHET
-      --ch arg  Clustering heuristic options:
-                 1	MONOLITHIC
-                 2	LINEAR
-                 3	BUCKET_LIST
-                 4	BUCKET_TREE
-                 5	BOUQUET_LIST
-                 6	BOUQUET_TREE   default: 6
-      --cv arg  Cluster variable order heuristic options (negate to invert):
-                 1	APPEARANCE
-                 2	DECLARATION
-                 3	RANDOM
-                 4	MCS
-                 5	LEXP           default: 5
-                 6	LEXM
-      --dv arg  Diagram variable order heuristic options (negate to invert):
-                 1	APPEARANCE
-                 2	DECLARATION
-                 3	RANDOM
-                 4	MCS            default: 4
-                 5	LEXP
-                 6	LEXM
+  -h, --hi      help information
+      --cf arg  cnf file path (to use stdin, type: '--cf -')      Default: -
+      --wf arg  weight format in cnf file:
+           1    UNWEIGHTED                                        
+           2    MINIC2D                                           
+           3    CACHET                                            
+           4    MCC                                               Default: 4
+      --ch arg  clustering heuristic:
+           1    MONOLITHIC                                        
+           2    LINEAR                                            
+           3    BUCKET_LIST                                       
+           4    BUCKET_TREE                                       
+           5    BOUQUET_LIST                                      
+           6    BOUQUET_TREE                                      Default: 6
+      --cv arg  cluster variable order heuristic (negate to invert):
+           1    APPEARANCE                                        
+           2    DECLARATION                                       
+           3    RANDOM                                            
+           4    MCS                                               
+           5    LEXP                                              Default: 5
+           6    LEXM                                              
+      --dv arg  diagram variable order heuristic (negate to invert):
+           1    APPEARANCE                                        
+           2    DECLARATION                                       
+           3    RANDOM                                            
+           4    MCS                                               Default: 4
+           5    LEXP                                              
+           6    LEXM                                              
+      --rs arg  random seed                                       Default: 10
+      --vl arg  verbosity level:
+           0    solution only                                     Default: 0
+           1    parsed info as well                               
+           2    clusters as well                                  
+           3    cnf literal weights as well                       
+           4    input lines as well                               
 ```
 
-### Solving DIMACS file with weight format `UNWEIGHTED`
+### Computing model count given cnf file from stdin
+#### Command
+```bash
+./addmc < MCC/wcnf/track2_000.mcc2020_wcnf
 ```
-$ counting/addmc --cf examples/UNWEIGHTED.cnf --wf 1
-
-============================================================
-ADDMC: exact Model Counter using Algebraic Decision Diagrams
-Version v1.0.0, released on 2020/02/02
-
-Reading DIMACS CNF file:
-* cnfFilePath                   examples/UNWEIGHTED.cnf
-* declaredVarCount              2
-* apparentVarCount              2
-* declaredClauseCount           3
-* apparentClauseCount           3
-
-Constructing model counter:
-* weightFormat                  UNWEIGHTED
-* clustering                    BOUQUET_TREE
-* clusterVarOrder               LEXP
-* inverseClusterVarOrder        0
-* diagramVarOrder               MCS
-* inverseDiagramVarOrder        0
-
-Counting models...
-* modelCount                    1
-* seconds                       0.015
+#### Output
 ```
+c ==================================================================
+c ADDMC: Algebraic Decision Diagram Model Counter (help: 'addmc -h')
+c Version mc-2020, released on 2020/05/17
+c ==================================================================
 
-### Solving DIMACS file with weight format `MINIC2D`
-```
-$ counting/addmc --cf examples/MINIC2D.cnf --wf 2 --ch 3
+c Process ID of this main program:
+c pid 394925
 
-============================================================
-ADDMC: exact Model Counter using Algebraic Decision Diagrams
-Version v1.0.0, released on 2020/02/02
+c Reading CNF formula...
+c ==================================================================
+c Getting cnf from stdin... (end input with 'Enter' then 'Ctrl d')
+c Getting cnf from stdin: done
+c ==================================================================
 
-Reading DIMACS CNF file:
-* cnfFilePath                   examples/MINIC2D.cnf
-* declaredVarCount              2
-* apparentVarCount              2
-* declaredClauseCount           3
-* apparentClauseCount           3
+c Computing output...
+c ------------------------------------------------------------------
+s wmc 1.37729e-05
+c ------------------------------------------------------------------
 
-Constructing model counter:
-* weightFormat                  MINIC2D
-* clustering                    BUCKET_LIST
-* clusterVarOrder               LEXP
-* inverseClusterVarOrder        0
-* diagramVarOrder               MCS
-* inverseDiagramVarOrder        0
-
-Counting models...
-* modelCount                    2.2
-* seconds                       0.004
-```
-
-### Solving DIMACS file with weight format `CACHET`
-```
-$ counting/addmc --cf examples/CACHET.cnf --wf 3 --ch 3 --cv 6 --dv -4
-
-============================================================
-ADDMC: exact Model Counter using Algebraic Decision Diagrams
-v1.0.0 on 2020/02/02
-
-Reading DIMACS CNF file:
-* cnfFilePath                   examples/CACHET.cnf
-* declaredVarCount              2
-* apparentVarCount              2
-* declaredClauseCount           3
-* apparentClauseCount           3
-
-Constructing model counter:
-* weightFormat                  CACHET
-* clustering                    BUCKET_LIST
-* clusterVarOrder               LEXM
-* inverseClusterVarOrder        0
-* diagramVarOrder               MCS
-* inverseDiagramVarOrder        1
-
-Counting models...
-* modelCount                    0.3
-* seconds                       0.004
+c ==================================================================
+c seconds                       0.01           
+c ==================================================================
 ```
 
 <!-- ####################################################################### -->
 
 ## Acknowledgment
+- Lucas Tabajara: [RSynth][url_rsynth]
 - Fabio Somenzi: [CUDD package][url_cudd_package]
 - Rob Rutenbar: [CUDD tutorial][url_cudd_tutorial]
 - David Kebo: [CUDD visualization][url_cudd_visualization]
-- Lucas Tabajara: [RSynth][url_rsynth]
 - Jarryd Beck: [cxxopts][url_cxxopts]
 
 <!-- ####################################################################### -->
@@ -185,8 +136,8 @@ Counting models...
 [url_v1_0_0_benchmarks_zip]:https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/benchmarks.zip
 [url_v1_0_0_experimenting_zip]:https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/experimenting.zip
 
+[url_rsynth]:https://bitbucket.org/lucas-mt/rsynth
 [url_cudd_package]:https://github.com/ivmai/cudd
 [url_cudd_tutorial]:http://db.zmitac.aei.polsl.pl/AO/dekbdd/F01-CUDD.pdf
 [url_cudd_visualization]:http://davidkebo.com/cudd#cudd6
-[url_rsynth]:https://bitbucket.org/lucas-mt/rsynth
 [url_cxxopts]:https://github.com/jarro2783/cxxopts
