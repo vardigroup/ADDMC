@@ -34,7 +34,7 @@ $(OBJ_DIR)/%.o: $(CPP_DIR)/%.cpp $(HPP_DIR)/%.hpp $(LIB_DIR)
 	mkdir -p $(OBJ_DIR) && $(GCC) -c -o $@ $< $(GCC_FLAGS) && echo
 
 $(LIB_DIR): $(LIB_ZIP)
-	unzip -D $(LIB_ZIP) && cd $(CUDD_DIR) && ./configure --enable-silent-rules --enable-obj && make && echo
+	unzip -D $(LIB_ZIP) && cd $(CUDD_DIR) && autoreconf && ./configure --enable-silent-rules --enable-obj && make && echo
 
 ################################################################################
 
