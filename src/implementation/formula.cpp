@@ -300,8 +300,8 @@ Cnf::Cnf(const string &filePath, WeightFormat weightFormat) {
         }
 
         for (Int var = 1; var <= declaredVarCount; var++) {
-          literalWeights[var] = std::stold(words.at(var * 2));
-          literalWeights[-var] = std::stold(words.at(var * 2 + 1));
+          literalWeights[var] = std::stod(words.at(var * 2));
+          literalWeights[-var] = std::stod(words.at(var * 2 + 1));
         }
       }
     }
@@ -315,7 +315,7 @@ Cnf::Cnf(const string &filePath, WeightFormat weightFormat) {
         if (var <= 0 || var > declaredVarCount) {
           showError("var '" + to_string(var) + "' is inconsistent with declared var count '" + to_string(declaredVarCount) + "' -- line " + to_string(lineIndex));
         }
-        Float weight = std::stold(words.at(2));
+        Float weight = std::stod(words.at(2));
         literalWeights[var] = weight;
       }
       else if (weightFormat == WeightFormat::MCC && (wordCount == 3 || wordCount == 4 && words.at(3) == "0")) {
@@ -326,7 +326,7 @@ Cnf::Cnf(const string &filePath, WeightFormat weightFormat) {
           showError("literal '" + to_string(literal) + "' is inconsistent with declared var count '" + to_string(declaredVarCount) + "' -- line " + to_string(lineIndex));
         }
 
-        Float weight = std::stold(words.at(2));
+        Float weight = std::stod(words.at(2));
         literalWeights[literal] = weight;
       }
       else {

@@ -1,4 +1,1 @@
-#!/usr/bin/bash
-
-make lib
-tar czf addmc.tgz lib src CMakeLists.txt
+tar czf addmc.tgz examples src CMakeLists.txt INSTALL.md INSTALL.sh lib.tar LICENSE.md README.md

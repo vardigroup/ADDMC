@@ -73,7 +73,7 @@ OptionDict::OptionDict(int argc, char *argv[]) {
   }
 
   weightFormatOption = std::stoll(result[WEIGHT_FORMAT_OPTION].as<string>());
-  jtWaitSeconds = std::stold(result[JT_WAIT_DURAION_OPTION].as<string>());
+  jtWaitSeconds = std::stod(result[JT_WAIT_DURAION_OPTION].as<string>());
   outputFormatOption = std::stoll(result[OUTPUT_FORMAT_OPTION].as<string>());
   clusteringHeuristicOption = std::stoll(result[CLUSTERING_HEURISTIC_OPTION].as<string>());
   cnfVarOrderingHeuristicOption = std::stoll(result[CLUSTER_VAR_ORDER_OPTION].as<string>());

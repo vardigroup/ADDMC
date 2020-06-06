@@ -258,7 +258,7 @@ void JoinTreeReader::readInputStream(std::istream *inputStream) {
         }
         else if (key == "seconds") {
           if (joinTree != nullptr) {
-            joinTree->plannerSeconds = std::stold(value);
+            joinTree->plannerSeconds = std::stod(value);
           }
         }
       }

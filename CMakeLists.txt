@@ -1,20 +1,37 @@
-cmake_minimum_required(VERSION 2.8.9)
+PROJECT(cmake_addmc) # overwrites 'Makefile' (lower precedence than manually written 'makefile' wrt 'make')
 
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.9)
 
-project(addmc)
-file(GLOB SOURCES "src/implementation/*.cpp")
+SET(CMAKE_CXX_STANDARD 14)
+SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(src/interface)
+SET(CMAKE_CXX_FLAGS "-g -Ofast -static")
 
-include_directories(lib)
-include_directories(lib/cudd-3.0.0)
-include_directories(lib/cudd-3.0.0/cudd)
-include_directories(lib/cudd-3.0.0/epd)
-include_directories(lib/cudd-3.0.0/mtr)
-include_directories(lib/cudd-3.0.0/st)
+SET(lib_dir ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+SET(lib_tar ${lib_dir}.tar)
+SET(cudd_dir ${lib_dir}/cudd-3.0.0)
 
-link_directories(lib/cudd-3.0.0/cudd/.libs)
-add_executable(addmc ${SOURCES})
-target_link_libraries(addmc cudd)
+ADD_CUSTOM_COMMAND(
+  OUTPUT ${lib_dir}
+  DEPENDS ${lib_tar}
+  COMMAND tar -xf ${lib_tar} && touch ${lib_dir} && cd ${cudd_dir} && ./configure --enable-silent-rules --enable-obj && make
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+LINK_DIRECTORIES(${cudd_dir}/cudd/.libs)
+
+INCLUDE_DIRECTORIES(${cudd_dir})
+INCLUDE_DIRECTORIES(${cudd_dir}/cudd)
+INCLUDE_DIRECTORIES(${cudd_dir}/epd)
+INCLUDE_DIRECTORIES(${cudd_dir}/mtr)
+INCLUDE_DIRECTORIES(${cudd_dir}/st)
+
+INCLUDE_DIRECTORIES(${lib_dir})
+
+INCLUDE_DIRECTORIES(src/interface)
+
+FILE(GLOB cpp_files "src/implementation/*.cpp")
+
+ADD_EXECUTABLE(addmc ${cpp_files} ${lib_dir})
+
+TARGET_LINK_LIBRARIES(addmc cudd)

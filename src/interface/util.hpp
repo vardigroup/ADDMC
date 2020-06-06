@@ -35,7 +35,7 @@ using std::vector;
 
 /* types **********************************************************************/
 
-using Float = long double; // std::stold
+using Float = double; // std::stod // OPTIL would complain about 'long double'
 using Int = int_fast64_t; // std::stoll
 using TimePoint = std::chrono::time_point<std::chrono::steady_clock>;
 
