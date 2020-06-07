@@ -19,6 +19,8 @@ namespace diagram {
 
 class Counter { // abstract
 protected:
+  static WeightFormat weightFormat;
+
   Int dotFileIndex = 1;
   Cudd mgr;
   VarOrderingHeuristic ddVarOrderingHeuristic;

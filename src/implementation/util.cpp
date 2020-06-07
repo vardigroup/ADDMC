@@ -99,9 +99,9 @@ void util::printComment(const string &message, Int preceedingNewLines, Int follo
   for (Int i = 0; i < followingNewLines; i++) cout << "\n";
 }
 
-void util::printSolutionLine(Float modelCount, Int preceedingThinLines, Int followingThinLines) {
+void util::printSolutionLine(WeightFormat weightFormat, Float modelCount, Int preceedingThinLines, Int followingThinLines) {
   for (Int i = 0; i < preceedingThinLines; i++) printThinLine();
-  cout << "s wmc " << modelCount << "\n";
+  cout << "s " << (weightFormat == WeightFormat::UNWEIGHTED ? "mc" : "wmc") << " " << modelCount << "\n";
   for (Int i = 0; i < followingThinLines; i++) printThinLine();
 }
 

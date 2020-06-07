@@ -42,13 +42,15 @@ void diagram::printMaxDdVarCount(Int maxDdVarCount) {
 
 /* class Counter **************************************************************/
 
+WeightFormat Counter::weightFormat;
+
 void Counter::handleSignals(int signal) {
   cout << "\n";
   util::printDuration(startTime);
   cout << "\n";
-  
-  util::printSolutionLine(0, 0, 0);
-  showError("received Linux signal " + to_string(signal) + "; printed dummy model count");
+
+  util::printSolutionLine(weightFormat, 0, 0, 0);
+  showError("received system signal " + to_string(signal) + "; printed dummy model count");
 }
 
 void Counter::writeDotFile(ADD &dd, const string &dotFileDir) {
@@ -165,6 +167,8 @@ Float Counter::getModelCount(const Cnf &cnf) {
 }
 
 void Counter::output(const string &filePath, WeightFormat weightFormat, OutputFormat outputFormat) {
+  Counter::weightFormat = weightFormat;
+
   Cnf cnf(filePath, weightFormat);
 
   printComment("Computing output...", 1);
@@ -181,7 +185,7 @@ void Counter::output(const string &filePath, WeightFormat weightFormat, OutputFo
       break;
     }
     case OutputFormat::MODEL_COUNT: {
-      util::printSolutionLine(getModelCount(cnf));
+      util::printSolutionLine(weightFormat, getModelCount(cnf));
       break;
     }
     default: {

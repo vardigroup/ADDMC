@@ -114,7 +114,7 @@ namespace util {
   /* functions: printing ******************************************************/
 
   void printComment(const string &message, Int preceedingNewLines = 0, Int followingNewLines = 1, bool commented = true);
-  void printSolutionLine(Float modelCount, Int preceedingThinLines = 1, Int followingThinLines = 1);
+  void printSolutionLine(WeightFormat weightFormat, Float modelCount, Int preceedingThinLines = 1, Int followingThinLines = 1);
 
   void printBoldLine(bool commented);
   void printThickLine(bool commented = true);
