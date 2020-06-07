@@ -37,7 +37,7 @@ void OptionDict::printWelcome() const {
   printComment("ADDMC: Algebraic Decision Diagram Model Counter (help: 'addmc -h')", 0, 1, commented);
 
   const string &version = "mc-2020";
-  const string &date = "2020/05/17";
+  const string &date = "2020/06/07";
   printComment("Version " + version + ", released on " + date, 0, 1, commented);
 
   printThickLine(commented);
