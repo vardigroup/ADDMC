@@ -15,7 +15,7 @@
 
 ## [Releases](https://github.com/vardigroup/ADDMC/releases)
 
-- 2020/06/07: [mc-2020](https://github.com/vardigroup/ADDMC/releases/tag/mc-2020)
+- 2020/06/07: [mc-2020](https://github.com/vardigroup/ADDMC/releases/tag/mc-2020) [![DOI](https://zenodo.org/badge/264571656.svg)](https://zenodo.org/badge/latestdoi/264571656)
   - Model Counting 2020 competition, WMC track
 - 2020/02/02: [v1.0.0](https://github.com/vardigroup/ADDMC/releases/tag/v1.0.0)
   - AAAI 2020 conference
