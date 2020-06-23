@@ -16,7 +16,7 @@
 ## [Releases](https://github.com/vardigroup/ADDMC/releases)
 
 - 2020/06/07: [mc-2020](https://github.com/vardigroup/ADDMC/releases/tag/mc-2020) [![DOI](https://zenodo.org/badge/264571656.svg)](https://zenodo.org/badge/latestdoi/264571656)
-  - Model Counting 2020 competition, WMC track
+  - weighted model counting competition
 - 2020/02/02: [v1.0.0](https://github.com/vardigroup/ADDMC/releases/tag/v1.0.0)
   - AAAI 2020 conference
   - Assets:
@@ -117,6 +117,87 @@ c seconds                       0.034
 c ==================================================================
 ```
 
+### Computing model count given cnf file with weight format `UNWEIGHTED`
+#### Command
+```bash
+./addmc --cf examples/UNWEIGHTED.cnf --wf 1
+```
+#### Output
+```
+c ==================================================================
+c ADDMC: Algebraic Decision Diagram Model Counter (help: 'addmc -h')
+c Version mc-2020, released on 2020/06/07
+c ==================================================================
+
+c Process ID of this main program:
+c pid 358012
+
+c Reading CNF formula...
+
+c Computing output...
+c ------------------------------------------------------------------
+s mc 1
+c ------------------------------------------------------------------
+
+c ==================================================================
+c seconds                       0.019          
+c ==================================================================
+```
+
+### Computing model count given cnf file with weight format `MINIC2D`
+#### Command
+```bash
+./addmc --cf examples/MINIC2D.cnf --wf 2
+```
+#### Output
+```
+c ==================================================================
+c ADDMC: Algebraic Decision Diagram Model Counter (help: 'addmc -h')
+c Version mc-2020, released on 2020/06/07
+c ==================================================================
+
+c Process ID of this main program:
+c pid 358102
+
+c Reading CNF formula...
+
+c Computing output...
+c ------------------------------------------------------------------
+s wmc 2.2
+c ------------------------------------------------------------------
+
+c ==================================================================
+c seconds                       0.018          
+c ==================================================================
+```
+
+### Computing model count given cnf file with weight format `CACHET`
+#### Command
+```bash
+./addmc --cf examples/CACHET.cnf --wf 3
+```
+#### Output
+```
+c ==================================================================
+c ADDMC: Algebraic Decision Diagram Model Counter (help: 'addmc -h')
+c Version mc-2020, released on 2020/06/07
+c ==================================================================
+
+c Process ID of this main program:
+c pid 358118
+
+c Reading CNF formula...
+
+c Computing output...
+c ------------------------------------------------------------------
+s wmc 0.3
+c ------------------------------------------------------------------
+
+c ==================================================================
+c seconds                       0.019          
+c ==================================================================
+```
+
 <!-- ####################################################################### -->
 
 ## Acknowledgment
@@ -125,6 +206,8 @@ c ==================================================================
 - Rob Rutenbar: [CUDD tutorial][url_cudd_tutorial]
 - David Kebo: [CUDD visualization][url_cudd_visualization]
 - Jarryd Beck: [cxxopts][url_cxxopts]
+- Henry Kautz and Tian Sang: [Cachet][url_cachet]
+- Markus Hecher and Johannes Fichte: [model counting competition][url_mcc]
 
 <!-- ####################################################################### -->
 
@@ -141,3 +224,5 @@ c ==================================================================
 [url_cudd_tutorial]:http://db.zmitac.aei.polsl.pl/AO/dekbdd/F01-CUDD.pdf
 [url_cudd_visualization]:http://davidkebo.com/cudd#cudd6
 [url_cxxopts]:https://github.com/jarro2783/cxxopts
+[url_cachet]:https://www.cs.rochester.edu/u/kautz/Cachet/Model_Counting_Benchmarks/index.htm
+[url_mcc]:https://mccompetition.org/2020/mc_format

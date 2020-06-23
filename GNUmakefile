@@ -36,9 +36,12 @@ $(OBJ_DIR)/%.o: $(CPP_DIR)/%.cpp $(HPP_DIR)/%.hpp $(LIB_DIR)
 $(LIB_DIR): $(LIB_TAR)
 	tar -xf $(LIB_TAR) && touch $(LIB_DIR) && cd $(CUDD_DIR) && ./configure --enable-silent-rules --enable-obj && make && echo
 
+addmc.tgz:
+	tar -czf addmc.tgz examples src CMakeLists.txt INSTALL.md INSTALL.sh lib.tar LICENSE.md README.md
+
 ################################################################################
 
 .PHONY: clean
 
 clean:
-	rm -rf addmc.tgz build CMakeCache.txt CMakeFiles cmake_install.cmake $(LIB_DIR) $(OBJ_DIR) $(ADDMC_BIN)
+	rm -rf addmc.tgz build CMakeCache.txt CMakeFiles Makefile cmake_install.cmake $(LIB_DIR) $(OBJ_DIR) $(ADDMC_BIN)

@@ -1,4 +1,4 @@
-PROJECT(cmake_addmc) # overwrites 'Makefile' (lower precedence than manually written 'makefile' wrt 'make')
+PROJECT(cmake_addmc) # overwrites 'Makefile' (lower precedence than manually written 'GNUmakefile' wrt 'make')
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.9)
 

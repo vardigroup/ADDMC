@@ -1,10 +1,10 @@
 addmc
 
-lib/
-obj/
-benchmarks/
-experimenting/Auto*
-experimenting/data.py
+lib
+obj
+
+benchmarks
+experimenting
 
 *.nnf
 *.query
@@ -18,9 +18,9 @@ venv
 
 build
 .vscode
-flow-cutter-pace17
 
 *.sif
+
 
 ################################################################################
 ## GitHub default ignores: C
