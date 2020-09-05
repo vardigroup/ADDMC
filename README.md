@@ -5,7 +5,8 @@
 ## Description
 - ADDMC computes exact literal-weighted model counts of formulas in conjunctive normal form
   - Developer: [Vu H. N. Phan][url_homepage_vp]
-  - M.S. thesis: [**Weighted Model Counting with Algebraic Decision Diagrams**](https://scholarship.rice.edu/handle/1911/107761)
+- M.S. thesis: [**Weighted Model Counting with Algebraic Decision Diagrams**](https://scholarship.rice.edu/handle/1911/107761)
+  - Author: [Vu H. N. Phan][url_homepage_vp]
 - AAAI-2020 paper: [**ADDMC: Weighted Model Counting with Algebraic Decision Diagrams**](https://arxiv.org/abs/1907.05000)
   - Authors:
     - [Jeffrey M. Dudek][url_homepage_jd]
