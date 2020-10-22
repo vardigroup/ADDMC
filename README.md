@@ -18,7 +18,7 @@
 ## [Releases](https://github.com/vardigroup/ADDMC/releases)
 
 - 2020/06/07: [mc-2020](https://github.com/vardigroup/ADDMC/releases/tag/mc-2020) [![DOI](https://zenodo.org/badge/264571656.svg)](https://zenodo.org/badge/latestdoi/264571656)
-  - weighted model counting competition
+  - model-counting competition, weighted track
 - 2020/02/02: [v1.0.0](https://github.com/vardigroup/ADDMC/releases/tag/v1.0.0)
   - AAAI 2020 conference
   - Assets:
@@ -209,11 +209,11 @@ c ==================================================================
 - David Kebo: [CUDD visualization][url_cudd_visualization]
 - Jarryd Beck: [cxxopts][url_cxxopts]
 - Henry Kautz and Tian Sang: [Cachet][url_cachet]
-- Markus Hecher and Johannes Fichte: [model counting competition][url_mcc]
+- Markus Hecher and Johannes Fichte: [model-counting competition][url_mcc]
 
 <!-- ####################################################################### -->
 
-[url_homepage_jd]:https//jmd11.web.rice.edu
+[url_homepage_jd]:https://jmd11.web.rice.edu
 [url_homepage_vp]:https://vuphan314.github.io
 [url_homepage_mv]:https://cs.rice.edu/~vardi
 
