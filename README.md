@@ -1,4 +1,4 @@
-# ADDMC (Algebraic Decision Diagram Model Counter)
+# ADDMC (Algebraic-Decision-Diagram Model Counter)
 
 <!-- ####################################################################### -->
 
@@ -213,9 +213,9 @@ c ==================================================================
 
 <!-- ####################################################################### -->
 
-[url_homepage_jd]:http://jmd11.web.rice.edu/
-[url_homepage_vp]:https://vuphan314.github.io/
-[url_homepage_mv]:https://www.cs.rice.edu/~vardi/
+[url_homepage_jd]:https//jmd11.web.rice.edu
+[url_homepage_vp]:https://vuphan314.github.io
+[url_homepage_mv]:https://cs.rice.edu/~vardi
 
 [url_v1_0_0_addmc_zip]:https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/ADDMC.zip
 [url_v1_0_0_benchmarks_zip]:https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/benchmarks.zip
@@ -224,7 +224,7 @@ c ==================================================================
 [url_rsynth]:https://bitbucket.org/lucas-mt/rsynth
 [url_cudd_package]:https://github.com/ivmai/cudd
 [url_cudd_tutorial]:http://db.zmitac.aei.polsl.pl/AO/dekbdd/F01-CUDD.pdf
-[url_cudd_visualization]:http://davidkebo.com/cudd#cudd6
+[url_cudd_visualization]:https://davidkebo.com/cudd#cudd6
 [url_cxxopts]:https://github.com/jarro2783/cxxopts
-[url_cachet]:https://www.cs.rochester.edu/u/kautz/Cachet/Model_Counting_Benchmarks/index.htm
+[url_cachet]:https://cs.rochester.edu/u/kautz/Cachet
 [url_mcc]:https://mccompetition.org/2020/mc_format
