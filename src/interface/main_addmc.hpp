@@ -1,5 +1,7 @@
 /* inclusions *****************************************************************/
 
+#include <limits>
+
 #include "../../lib/cxxopts.hpp"
 
 #include "counter.hpp"
