@@ -1,10 +1,13 @@
+lib/
+
+build/
+
+obj/
+
 addmc
 
-lib
-obj
-
-benchmarks
-experimenting
+benchmarks*
+experimenting*
 
 *.nnf
 *.query
@@ -16,7 +19,6 @@ venv
 
 *.swp
 
-build
 .vscode
 
 *.sif
