@@ -1,6 +1,6 @@
 PROJECT(cmake_addmc) # overwrites 'Makefile' (lower precedence than manually written 'GNUmakefile' wrt 'make')
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.9)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
 
 SET(CMAKE_CXX_STANDARD 14)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
