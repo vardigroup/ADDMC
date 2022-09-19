@@ -1,37 +1,36 @@
 # ADDMC (Algebraic-Decision-Diagram Model Counter)
 
-<!-- ####################################################################### -->
+--------------------------------------------------------------------------------
 
 ## Description
 - ADDMC computes exact literal-weighted model counts of formulas in conjunctive normal form
-  - Developer: [Vu H. N. Phan][url_homepage_vp]
+  - Developer: Vu H. N. Phan
 - M.S. thesis: [**Weighted Model Counting with Algebraic Decision Diagrams**](https://scholarship.rice.edu/handle/1911/107761)
-  - Author: [Vu H. N. Phan][url_homepage_vp]
+  - Author: Vu H. N. Phan
 - AAAI-2020 paper: [**ADDMC: Weighted Model Counting with Algebraic Decision Diagrams**](https://arxiv.org/abs/1907.05000)
   - Authors:
-    - [Jeffrey M. Dudek][url_homepage_jd]
-    - [Vu H. N. Phan][url_homepage_vp]
-    - [Moshe Y. Vardi][url_homepage_mv]
+    - [Jeffrey M. Dudek](https://jmd11.web.rice.edu)
+    - [Vu H. N. Phan](https://vuphan314.github.io)
+    - [Moshe Y. Vardi](https://cs.rice.edu/~vardi)
 
-<!-- ####################################################################### -->
+--------------------------------------------------------------------------------
 
 ## [Releases](https://github.com/vardigroup/ADDMC/releases)
 
 - 2020/06/07: [mc-2020](https://github.com/vardigroup/ADDMC/releases/tag/mc-2020) [![DOI](https://zenodo.org/badge/264571656.svg)](https://zenodo.org/badge/latestdoi/264571656)
-  - model-counting competition, weighted track
+  - Model Counting Competition, weighted track
 - 2020/02/02: [v1.0.0](https://github.com/vardigroup/ADDMC/releases/tag/v1.0.0)
   - AAAI 2020 conference
   - Assets:
-    - ADDMC source code (C++): [ADDMC.zip][url_v1_0_0_addmc_zip]
-    - Benchmarks: [benchmarks.zip][url_v1_0_0_benchmarks_zip]
-    - Experimental data: [experimenting.zip][url_v1_0_0_experimenting_zip]
+    - Benchmarks: [benchmarks.zip](https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/benchmarks.zip)
+    - Experimental data: [experimenting.zip](https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/experimenting.zip)
 
-<!-- ####################################################################### -->
+--------------------------------------------------------------------------------
 
 ## Installation
 See `INSTALL.md`
 
-<!-- ####################################################################### -->
+--------------------------------------------------------------------------------
 
 ## Examples
 
@@ -200,31 +199,13 @@ c seconds                       0.019
 c ==================================================================
 ```
 
-<!-- ####################################################################### -->
+--------------------------------------------------------------------------------
 
 ## Acknowledgment
-- Lucas Tabajara: [RSynth][url_rsynth]
-- Fabio Somenzi: [CUDD package][url_cudd_package]
-- Rob Rutenbar: [CUDD tutorial][url_cudd_tutorial]
-- David Kebo: [CUDD visualization][url_cudd_visualization]
-- Jarryd Beck: [cxxopts][url_cxxopts]
-- Henry Kautz and Tian Sang: [Cachet][url_cachet]
-- Markus Hecher and Johannes Fichte: [model-counting competition][url_mcc]
-
-<!-- ####################################################################### -->
-
-[url_homepage_jd]:https://jmd11.web.rice.edu
-[url_homepage_vp]:https://vuphan314.github.io
-[url_homepage_mv]:https://cs.rice.edu/~vardi
-
-[url_v1_0_0_addmc_zip]:https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/ADDMC.zip
-[url_v1_0_0_benchmarks_zip]:https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/benchmarks.zip
-[url_v1_0_0_experimenting_zip]:https://github.com/vardigroup/ADDMC/releases/download/v1.0.0/experimenting.zip
-
-[url_rsynth]:https://bitbucket.org/lucas-mt/rsynth
-[url_cudd_package]:https://github.com/ivmai/cudd
-[url_cudd_tutorial]:http://db.zmitac.aei.polsl.pl/AO/dekbdd/F01-CUDD.pdf
-[url_cudd_visualization]:https://davidkebo.com/cudd#cudd6
-[url_cxxopts]:https://github.com/jarro2783/cxxopts
-[url_cachet]:https://cs.rochester.edu/u/kautz/Cachet
-[url_mcc]:https://mccompetition.org/2020/mc_format
+- Tabajara: [RSynth](https://bitbucket.org/lucas-mt/rsynth)
+- Somenzi: [CUDD package](https://github.com/ivmai/cudd)
+- Rutenbar: [CUDD tutorial](http://db.zmitac.aei.polsl.pl/AO/dekbdd/F01-CUDD.pdf)
+- Kebo: [CUDD visualization](https://davidkebo.com/cudd#cudd6)
+- Beck: [cxxopts](https://github.com/jarro2783/cxxopts)
+- Kautz and Sang: [Cachet](https://henrykautz.com/Cachet/)
+- Hecher and Fichte: [Model Counting Competition](https://mccompetition.org/2020/mc_format)
