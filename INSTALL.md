@@ -11,7 +11,7 @@
 ### Internal
 In `lib.tar`:
 - cudd 3.0.0
-- cxxopts 2.1.2
+- cxxopts 3.2.0
 
 ## Command
 ```bash
