@@ -6,6 +6,7 @@
 
 Int randomSeed = DEFAULT_RANDOM_SEED;
 Int verbosityLevel = DEFAULT_VERBOSITY_LEVEL_CHOICE;
+Float cuddEpsilon = DEFAULT_EPSILON;
 TimePoint startTime;
 
 /* constants ******************************************************************/
@@ -29,6 +30,7 @@ const string &CLUSTER_VAR_ORDER_OPTION = "cv";
 const string &DIAGRAM_VAR_ORDER_OPTION = "dv";
 const string &RANDOM_SEED_OPTION = "rs";
 const string &VERBOSITY_LEVEL_OPTION = "vl";
+const string &EPSILON_OPTION = "ep";
 
 const std::map<Int, WeightFormat> WEIGHT_FORMAT_CHOICES = {
   {1, WeightFormat::UNWEIGHTED},
@@ -68,6 +70,8 @@ const Int DEFAULT_CNF_VAR_ORDERING_HEURISTIC_CHOICE = 5;
 const Int DEFAULT_DD_VAR_ORDERING_HEURISTIC_CHOICE = 4;
 
 const Int DEFAULT_RANDOM_SEED = 10;
+
+const Float DEFAULT_EPSILON = 0; // 0 = exact terminal merging (full double precision)
 
 const vector<Int> VERBOSITY_LEVEL_CHOICES = {0, 1, 2, 3, 4};
 const Int DEFAULT_VERBOSITY_LEVEL_CHOICE = 0;
@@ -197,6 +201,11 @@ void util::printDdVarOrderingHeuristicOption() {
 void util::printRandomSeedOption() {
   cout << "      --" << RANDOM_SEED_OPTION << std::left << std::setw(56) << " arg  random seed";
   cout << "Default: " + to_string(DEFAULT_RANDOM_SEED) + "\n";
+}
+
+void util::printEpsilonOption() {
+  cout << "      --" << EPSILON_OPTION << std::left << std::setw(56) << " arg  CUDD terminal-merging epsilon (0 = exact)";
+  cout << "Default: " + to_string(DEFAULT_EPSILON) + "\n";
 }
 
 void util::printVerbosityLevelOption() {

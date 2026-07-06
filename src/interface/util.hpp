@@ -47,6 +47,7 @@ template<typename T> using Set = std::unordered_set<T>;
 
 extern Int randomSeed; // for reproducibility
 extern Int verbosityLevel;
+extern Float cuddEpsilon; // CUDD ADD terminal-merging tolerance; 0 = exact (full double precision)
 extern TimePoint startTime;
 
 /* constants ******************************************************************/
@@ -70,6 +71,7 @@ extern const string &CLUSTER_VAR_ORDER_OPTION;
 extern const string &DIAGRAM_VAR_ORDER_OPTION;
 extern const string &RANDOM_SEED_OPTION;
 extern const string &VERBOSITY_LEVEL_OPTION;
+extern const string &EPSILON_OPTION;
 
 enum class WeightFormat { UNWEIGHTED, MINIC2D, CACHET, MCC };
 extern const std::map<Int, WeightFormat> WEIGHT_FORMAT_CHOICES;
@@ -94,6 +96,8 @@ extern const Int DEFAULT_CNF_VAR_ORDERING_HEURISTIC_CHOICE;
 extern const Int DEFAULT_DD_VAR_ORDERING_HEURISTIC_CHOICE;
 
 extern const Int DEFAULT_RANDOM_SEED;
+
+extern const Float DEFAULT_EPSILON;
 
 extern const vector<Int> VERBOSITY_LEVEL_CHOICES;
 extern const Int DEFAULT_VERBOSITY_LEVEL_CHOICE;
@@ -132,6 +136,7 @@ namespace util {
   void printDdVarOrderingHeuristicOption();
   void printRandomSeedOption();
   void printVerbosityLevelOption();
+  void printEpsilonOption();
 
   /* functions: argument parsing **********************************************/
 
