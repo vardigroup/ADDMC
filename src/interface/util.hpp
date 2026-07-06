@@ -19,6 +19,7 @@ v               ^
 #include <iterator>
 #include <map>
 #include <random>
+#include <sstream>
 #include <unistd.h>
 #include <unordered_map>
 #include <unordered_set>

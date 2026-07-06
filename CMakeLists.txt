@@ -5,7 +5,13 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
 SET(CMAKE_CXX_STANDARD 14)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-SET(CMAKE_CXX_FLAGS "-g -Ofast -static")
+IF(APPLE)
+  # macOS clang cannot do fully static linking (-static); and -Ofast (-ffast-math)
+  # makes ADDMC's -infinity log-space sentinel undefined behavior, so use -O3.
+  SET(CMAKE_CXX_FLAGS "-g -O3")
+ELSE()
+  SET(CMAKE_CXX_FLAGS "-g -Ofast -static")
+ENDIF()
 
 SET(lib_dir ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 SET(lib_tar ${lib_dir}.tar)
