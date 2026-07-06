@@ -32,6 +32,32 @@ See `INSTALL.md`
 
 --------------------------------------------------------------------------------
 
+## Numerical behavior
+
+ADDMC exposes CUDD's terminal-merging epsilon as an option.
+`Counter::getModelCount` (`src/implementation/counter.cpp`) calls
+`mgr.SetEpsilon(cuddEpsilon)`, where `cuddEpsilon` comes from the **`--ep`**
+command-line option and **defaults to `0`** (exact), rather than CUDD's built-in
+default of `1e-12`.
+
+CUDD merges algebraic-decision-diagram terminal values that are within epsilon of
+each other, including merging tiny values into the `0` terminal. With small literal
+weights, a weighted model count can legitimately be far below `1e-12`
+(e.g. `exp(-69) ≈ 1e-30`), and CUDD's default epsilon would round such counts down to
+exactly `0`. With epsilon `0` that merging is disabled, so the count is exact down to
+ordinary double-precision underflow. Example, two variables with a single clause
+`x1 ∨ x2` and `W(x1=1)=W(x2=1)=1e-30`:
+
+```
+--ep 1e-12 (CUDD's built-in default): s wmc 0
+--ep 0     (ADDMC default):           s wmc 2e-30
+```
+
+Pass `--ep <e>` to trade exactness for the speed/memory of more terminal merging
+(a larger `e` merges more nodes); `--ep 0` keeps full double precision.
+
+--------------------------------------------------------------------------------
+
 ## Examples
 
 ### Showing command-line options

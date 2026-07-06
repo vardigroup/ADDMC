@@ -22,6 +22,7 @@ public:
   Int ddVarOrderingHeuristicOption;
   Int randomSeedOption;
   Int verbosityLevelOption;
+  Float epsilonOption;
 
   cxxopts::Options *options;
 

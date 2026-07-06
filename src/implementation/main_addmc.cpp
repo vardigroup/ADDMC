@@ -19,6 +19,7 @@ void OptionDict::printOptionalOptions() const {
   util::printDdVarOrderingHeuristicOption();
   util::printRandomSeedOption();
   util::printVerbosityLevelOption();
+  util::printEpsilonOption();
 }
 
 void OptionDict::printHelp() const {
@@ -58,6 +59,7 @@ OptionDict::OptionDict(int argc, char *argv[]) {
     (DIAGRAM_VAR_ORDER_OPTION, "", cxxopts::value<string>()->default_value(to_string(DEFAULT_DD_VAR_ORDERING_HEURISTIC_CHOICE)))
     (RANDOM_SEED_OPTION, "", cxxopts::value<string>()->default_value(to_string(DEFAULT_RANDOM_SEED)))
     (VERBOSITY_LEVEL_OPTION, "", cxxopts::value<string>()->default_value(to_string(DEFAULT_VERBOSITY_LEVEL_CHOICE)))
+    (EPSILON_OPTION, "", cxxopts::value<string>()->default_value(to_string(DEFAULT_EPSILON)))
   ;
 
   cxxopts::ParseResult result = options->parse(argc, argv);
@@ -80,6 +82,7 @@ OptionDict::OptionDict(int argc, char *argv[]) {
   ddVarOrderingHeuristicOption = std::stoll(result[DIAGRAM_VAR_ORDER_OPTION].as<string>());
   randomSeedOption = std::stoll(result[RANDOM_SEED_OPTION].as<string>());
   verbosityLevelOption = std::stoll(result[VERBOSITY_LEVEL_OPTION].as<string>());
+  epsilonOption = std::stod(result[EPSILON_OPTION].as<string>());
 }
 
 /* namespaces *****************************************************************/
@@ -273,6 +276,7 @@ void solving::solveCommand(int argc, char *argv[]) {
 
   randomSeed = optionDict.randomSeedOption; // global variable
   verbosityLevel = optionDict.verbosityLevelOption; // global variable
+  cuddEpsilon = optionDict.epsilonOption; // global variable
   startTime = util::getTimePoint(); // global variable
 
   if (optionDict.helpFlag) {
